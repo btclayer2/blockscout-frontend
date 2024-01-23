@@ -2,6 +2,8 @@ import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
+export const runtime = 'experimental-edge';
+
 import PageNextJs from 'nextjs/PageNextJs';
 
 const ApiKeys = dynamic(() => import('ui/pages/ApiKeys'), { ssr: false });

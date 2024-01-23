@@ -2,6 +2,8 @@ import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
+export const runtime = 'experimental-edge';
+
 import PageNextJs from 'nextjs/PageNextJs';
 
 const CustomAbi = dynamic(() => import('ui/pages/CustomAbi'), { ssr: false });
