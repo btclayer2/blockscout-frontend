@@ -63,7 +63,7 @@ echo 'start entrypoint------'
 
 # 打包
 echo 'start build app----'
-yarn build
+yarn build:local
 yarn svg:build-sprite
 
 echo 'remove files----'
