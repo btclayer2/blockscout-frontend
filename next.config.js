@@ -17,7 +17,7 @@ const moduleExports = {
     'swagger-ui-react',
   ],
   reactStrictMode: true,
-  webpack(config, { webpack, isServer }) {
+  webpack(config, { webpack }) {
     config.plugins.push(
       new webpack.DefinePlugin({
         __SENTRY_DEBUG__: false,
@@ -30,14 +30,14 @@ const moduleExports = {
         use: [ '@svgr/webpack' ],
       },
     );
-    // config.resolve.fallback = { fs: false, net: false, tls: false };
+    config.resolve.fallback = { fs: false, net: false, tls: false };
     config.externals.push('pino-pretty', 'lokijs', 'encoding');
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        stream: require.resolve('node:stream'),
-      };
-    }
+    // if (!isServer) {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      stream: require.resolve('stream-browserify'),
+    };
+    // }
     return config;
   },
   // NOTE: all config functions should be static and not depend on any environment variables
