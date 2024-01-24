@@ -30,9 +30,14 @@ const moduleExports = {
         use: [ '@svgr/webpack' ],
       },
     );
-    config.resolve.fallback = { fs: false, net: false, tls: false };
+    // config.resolve.fallback = { fs: false, net: false, tls: false };
     config.externals.push('pino-pretty', 'lokijs', 'encoding');
-
+    if (!isServer) {
+      config.resolve.fallback = {
+        fallback: { fs: false, net: false, tls: false },
+        stream: require.resolve('node:stream'),
+      };
+    }
     return config;
   },
   // NOTE: all config functions should be static and not depend on any environment variables
