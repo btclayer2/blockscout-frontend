@@ -4,7 +4,7 @@ import React from 'react';
 
 import type { Props } from 'nextjs/getServerSideProps';
 import PageNextJs from 'nextjs/PageNextJs';
-
+export const runtime = 'experimental-edge';
 const Block = dynamic(() => import('ui/pages/Block'), { ssr: false });
 
 const Page: NextPage<Props> = (props: Props) => {

@@ -7,7 +7,7 @@ import type { Props } from 'nextjs/getServerSideProps';
 import PageNextJs from 'nextjs/PageNextJs';
 
 import LayoutApp from 'ui/shared/layout/LayoutApp';
-
+export const runtime = 'experimental-edge';
 const MarketplaceApp = dynamic(() => import('ui/pages/MarketplaceApp'), { ssr: false });
 
 const Page: NextPageWithLayout<Props> = (props: Props) => {

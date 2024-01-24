@@ -4,7 +4,7 @@ import React from 'react';
 import PageNextJs from 'nextjs/PageNextJs';
 
 import CsvExport from 'ui/pages/CsvExport';
-
+export const runtime = 'experimental-edge';
 const Page: NextPage = () => {
   return (
     <PageNextJs pathname="/csv-export">

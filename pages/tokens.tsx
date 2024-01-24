@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 
 import PageNextJs from 'nextjs/PageNextJs';
-
+export const runtime = 'experimental-edge';
 const Tokens = dynamic(() => import('ui/pages/Tokens'), { ssr: false });
 
 const Page: NextPage = () => {

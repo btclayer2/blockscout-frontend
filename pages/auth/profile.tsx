@@ -4,7 +4,7 @@ import React from 'react';
 import PageNextJs from 'nextjs/PageNextJs';
 
 import MyProfile from 'ui/pages/MyProfile';
-
+export const runtime = 'experimental-edge';
 const Page: NextPage = () => {
   return (
     <PageNextJs pathname="/auth/profile">

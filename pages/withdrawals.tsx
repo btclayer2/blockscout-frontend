@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 
 import PageNextJs from 'nextjs/PageNextJs';
-
+export const runtime = 'experimental-edge';
 const Withdrawals = dynamic(() => import('ui/pages/Withdrawals'), { ssr: false });
 
 const Page: NextPage = () => {

@@ -4,7 +4,7 @@ import React from 'react';
 import PageNextJs from 'nextjs/PageNextJs';
 
 import Sol2Uml from 'ui/pages/Sol2Uml';
-
+export const runtime = 'experimental-edge';
 const Page: NextPage = () => {
   return (
     <PageNextJs pathname="/visualize/sol2uml">

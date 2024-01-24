@@ -5,7 +5,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import fetchFactory from 'nextjs/utils/fetch';
 
 import appConfig from 'configs/app';
-
+export const runtime = 'edge';
 const handler = async(nextReq: NextApiRequest, nextRes: NextApiResponse) => {
   if (!nextReq.url) {
     nextRes.status(500).json({ error: 'no url provided' });
@@ -36,4 +36,7 @@ export const config = {
       sizeLimit: '100mb',
     },
   },
+  unstable_allowDynamic: [
+    '**/node_modules/lodash/_root.js', // use a glob to allow anything in the function-bind 3rd party module
+  ],
 };
