@@ -34,7 +34,7 @@ const moduleExports = {
     config.externals.push('pino-pretty', 'lokijs', 'encoding');
     if (!isServer) {
       config.resolve.fallback = {
-        fallback: { fs: false, net: false, tls: false },
+        ...config.resolve.fallback,
         stream: require.resolve('node:stream'),
       };
     }
