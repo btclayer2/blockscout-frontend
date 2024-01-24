@@ -51,8 +51,8 @@ const moduleExports = {
   productionBrowserSourceMaps: true,
   experimental: {
     instrumentationHook: true,
-    runtime: 'experimental-edge',
   },
+  runtime: 'edge',
 };
 
 module.exports = withBundleAnalyzer(withRoutes(moduleExports));
