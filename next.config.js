@@ -52,7 +52,6 @@ const moduleExports = {
   experimental: {
     instrumentationHook: true,
   },
-  runtime: 'edge',
 };
 
 module.exports = withBundleAnalyzer(withRoutes(moduleExports));
