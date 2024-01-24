@@ -51,6 +51,7 @@ const moduleExports = {
   productionBrowserSourceMaps: true,
   experimental: {
     instrumentationHook: true,
+    runtime: 'experimental-edge',
   },
 };
 
