@@ -17,7 +17,7 @@ const moduleExports = {
     'swagger-ui-react',
   ],
   reactStrictMode: true,
-  webpack(config, { webpack }) {
+  webpack(config, { webpack, isServer }) {
     config.plugins.push(
       new webpack.DefinePlugin({
         __SENTRY_DEBUG__: false,
