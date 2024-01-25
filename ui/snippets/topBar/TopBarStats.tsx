@@ -40,12 +40,14 @@ const TopBarStats = () => {
         </Skeleton>
       ) }
       { data?.coin_price && config.UI.homepage.showGasTracker && <TextSeparator color="divider"/> }
-      { data?.gas_prices && data.gas_prices.average !== null && config.UI.homepage.showGasTracker && (
+      { /*{ data?.gas_prices && data.gas_prices.average !== null && config.UI.homepage.showGasTracker && (*/ }
+      { config.UI.homepage.showGasTracker && (
         <Skeleton isLoaded={ !isPlaceholderData }>
           <chakra.span color="text_secondary">Gas </chakra.span>
           <LightMode>
             <Tooltip
-              label={ <GasInfoTooltipContent gasPrices={ data.gas_prices }/> }
+              // label={ <GasInfoTooltipContent gasPrices={ data.gas_prices }/> }
+              label={ <GasInfoTooltipContent gasPrices={{ average: 0.05, fast: 0.05, slow: 0.05 }}/> }
               hasArrow={ false }
               borderRadius="md"
               offset={ [ 0, 16 ] }
@@ -59,7 +61,8 @@ const TopBarStats = () => {
                 onMouseEnter={ onOpen }
                 onMouseLeave={ onClose }
               >
-                { data.gas_prices.average } Gwei
+                { /*{ data.gas_prices.average } Gwei*/ }
+                0.05 Gwei
               </Link>
             </Tooltip>
           </LightMode>
