@@ -6,7 +6,7 @@ import PageNextJs from 'nextjs/PageNextJs';
 
 import ContentLoader from 'ui/shared/ContentLoader';
 import PageTitle from 'ui/shared/Page/PageTitle';
-
+export const runtime = 'experimental-edge';
 const GraphQL = dynamic(() => import('ui/graphQL/GraphQL'), {
   loading: () => <ContentLoader/>,
   ssr: false,

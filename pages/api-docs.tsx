@@ -5,7 +5,7 @@ import PageNextJs from 'nextjs/PageNextJs';
 
 import SwaggerUI from 'ui/apiDocs/SwaggerUI';
 import PageTitle from 'ui/shared/Page/PageTitle';
-
+export const runtime = 'experimental-edge';
 const Page: NextPage = () => {
   return (
     <PageNextJs pathname="/api-docs">

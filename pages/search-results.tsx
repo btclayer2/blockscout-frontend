@@ -7,7 +7,7 @@ import type { Props } from 'nextjs/getServerSideProps';
 import PageNextJs from 'nextjs/PageNextJs';
 
 import LayoutSearchResults from 'ui/shared/layout/LayoutSearchResults';
-
+export const runtime = 'experimental-edge';
 const SearchResults = dynamic(() => import('ui/pages/SearchResults'), { ssr: false });
 
 const Page: NextPageWithLayout<Props> = (props: Props) => {

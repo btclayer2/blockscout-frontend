@@ -6,7 +6,7 @@ import PageNextJs from 'nextjs/PageNextJs';
 
 import Home from 'ui/pages/Home';
 import LayoutHome from 'ui/shared/layout/LayoutHome';
-
+export const runtime = 'experimental-edge';
 const Page: NextPageWithLayout = () => {
   return (
     <PageNextJs pathname="/">

@@ -5,7 +5,7 @@ import type { Props } from 'nextjs/getServerSideProps';
 import PageNextJs from 'nextjs/PageNextJs';
 
 import ContractVerificationForAddress from 'ui/pages/ContractVerificationForAddress';
-
+export const runtime = 'experimental-edge';
 const Page: NextPage<Props> = (props: Props) => {
   return (
     <PageNextJs pathname="/address/[hash]/contract-verification" query={ props }>

@@ -9,7 +9,7 @@ import LinkExternal from 'ui/shared/LinkExternal';
 import PageTitle from 'ui/shared/Page/PageTitle';
 
 const feature = config.features.marketplace;
-
+export const runtime = 'experimental-edge';
 const Marketplace = dynamic(() => import('ui/pages/Marketplace'), { ssr: false });
 
 const Page: NextPage = () => {

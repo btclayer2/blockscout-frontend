@@ -4,7 +4,7 @@ import React from 'react';
 
 import type { Props } from 'nextjs/getServerSideProps';
 import PageNextJs from 'nextjs/PageNextJs';
-
+export const runtime = 'experimental-edge';
 const KettleTxs = dynamic(() => import('ui/pages/KettleTxs'), { ssr: false });
 
 const Page: NextPage<Props> = (props: Props) => {

@@ -5,7 +5,7 @@ import React from 'react';
 export const runtime = 'experimental-edge';
 
 import PageNextJs from 'nextjs/PageNextJs';
-
+export const runtime = 'experimental-edge';
 const CustomAbi = dynamic(() => import('ui/pages/CustomAbi'), { ssr: false });
 
 const Page: NextPage = () => {

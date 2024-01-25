@@ -4,7 +4,7 @@ import React from 'react';
 import PageNextJs from 'nextjs/PageNextJs';
 
 import Stats from 'ui/pages/Stats';
-
+export const runtime = 'experimental-edge';
 const Page: NextPage = () => {
   return (
     <PageNextJs pathname="/stats">

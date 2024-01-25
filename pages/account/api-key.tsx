@@ -5,7 +5,7 @@ import React from 'react';
 export const runtime = 'experimental-edge';
 
 import PageNextJs from 'nextjs/PageNextJs';
-
+export const runtime = 'experimental-edge';
 const ApiKeys = dynamic(() => import('ui/pages/ApiKeys'), { ssr: false });
 
 const Page: NextPage = () => {

@@ -1,8 +1,6 @@
 import type { IncomingMessage } from 'http';
 import type { NextApiRequest } from 'next';
 import type { NextApiRequestCookies } from 'next/dist/server/api-utils';
-import type { RequestInit, Response } from 'node-fetch';
-import nodeFetch from 'node-fetch';
 
 import { httpLogger } from 'nextjs/utils/logger';
 
@@ -50,7 +48,7 @@ export default function fetchFactory(
       return JSON.stringify(_body);
     })();
 
-    return nodeFetch(url, {
+    return fetch(url, {
       ...init,
       headers,
       body,
