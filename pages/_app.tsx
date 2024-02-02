@@ -2,6 +2,7 @@ import type { ChakraProps } from '@chakra-ui/react';
 import * as Sentry from '@sentry/react';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import BigNumber from 'bignumber.js';
 import type { AppProps } from 'next/app';
 import React from 'react';
 
@@ -19,7 +20,11 @@ import GoogleAnalytics from 'ui/shared/GoogleAnalytics';
 import Layout from 'ui/shared/layout/Layout';
 import Web3ModalProvider from 'ui/shared/Web3ModalProvider';
 
+import { PolkadotApiProvider } from '../lib/contexts/polkadot';
+
 import 'lib/setLocale';
+
+BigNumber.config({ EXPONENTIAL_AT: [ -100, 100 ] });
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
@@ -53,19 +58,21 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         { ...ERROR_SCREEN_STYLES }
         onError={ handleError }
       >
-        <Web3ModalProvider>
-          <AppContextProvider pageProps={ pageProps }>
-            <QueryClientProvider client={ queryClient }>
-              <ScrollDirectionProvider>
-                <SocketProvider url={ `${ config.api.socket }${ config.api.basePath }/socket/v2` }>
-                  { getLayout(<Component { ...pageProps }/>) }
-                </SocketProvider>
-              </ScrollDirectionProvider>
-              <ReactQueryDevtools buttonPosition="bottom-left" position="left"/>
-              <GoogleAnalytics/>
-            </QueryClientProvider>
-          </AppContextProvider>
-        </Web3ModalProvider>
+        <PolkadotApiProvider>
+          <Web3ModalProvider>
+            <AppContextProvider pageProps={ pageProps }>
+              <QueryClientProvider client={ queryClient }>
+                <ScrollDirectionProvider>
+                  <SocketProvider url={ `${ config.api.socket }${ config.api.basePath }/socket/v2` }>
+                    { getLayout(<Component { ...pageProps }/>) }
+                  </SocketProvider>
+                </ScrollDirectionProvider>
+                <ReactQueryDevtools buttonPosition="bottom-left" position="left"/>
+                <GoogleAnalytics/>
+              </QueryClientProvider>
+            </AppContextProvider>
+          </Web3ModalProvider>
+        </PolkadotApiProvider>
       </AppErrorBoundary>
     </ChakraProvider>
   );
