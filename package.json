@@ -47,6 +47,7 @@
     "@opentelemetry/sdk-node": "^0.45.0",
     "@opentelemetry/sdk-trace-node": "^1.18.0",
     "@opentelemetry/semantic-conventions": "^1.18.0",
+    "@polkadot/api": "^10.11.2",
     "@sentry/cli": "^2.21.2",
     "@sentry/react": "7.24.0",
     "@sentry/tracing": "7.24.0",
@@ -101,6 +102,7 @@
   "devDependencies": {
     "@playwright/experimental-ct-react": "1.35.1",
     "@playwright/test": "^1.35.1",
+    "@polkadot/types": "^10.11.2",
     "@svgr/webpack": "^6.5.1",
     "@tanstack/eslint-plugin-query": "^5.0.5",
     "@testing-library/react": "^14.0.0",

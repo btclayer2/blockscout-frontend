@@ -19,6 +19,8 @@ import GoogleAnalytics from 'ui/shared/GoogleAnalytics';
 import Layout from 'ui/shared/layout/Layout';
 import Web3ModalProvider from 'ui/shared/Web3ModalProvider';
 
+import { PolkadotApiProvider } from '../lib/contexts/polkadot';
+
 import 'lib/setLocale';
 
 type AppPropsWithLayout = AppProps & {
@@ -53,19 +55,21 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         { ...ERROR_SCREEN_STYLES }
         onError={ handleError }
       >
-        <Web3ModalProvider>
-          <AppContextProvider pageProps={ pageProps }>
-            <QueryClientProvider client={ queryClient }>
-              <ScrollDirectionProvider>
-                <SocketProvider url={ `${ config.api.socket }${ config.api.basePath }/socket/v2` }>
-                  { getLayout(<Component { ...pageProps }/>) }
-                </SocketProvider>
-              </ScrollDirectionProvider>
-              <ReactQueryDevtools buttonPosition="bottom-left" position="left"/>
-              <GoogleAnalytics/>
-            </QueryClientProvider>
-          </AppContextProvider>
-        </Web3ModalProvider>
+        <PolkadotApiProvider>
+          <Web3ModalProvider>
+            <AppContextProvider pageProps={ pageProps }>
+              <QueryClientProvider client={ queryClient }>
+                <ScrollDirectionProvider>
+                  <SocketProvider url={ `${ config.api.socket }${ config.api.basePath }/socket/v2` }>
+                    { getLayout(<Component { ...pageProps }/>) }
+                  </SocketProvider>
+                </ScrollDirectionProvider>
+                <ReactQueryDevtools buttonPosition="bottom-left" position="left"/>
+                <GoogleAnalytics/>
+              </QueryClientProvider>
+            </AppContextProvider>
+          </Web3ModalProvider>
+        </PolkadotApiProvider>
       </AppErrorBoundary>
     </ChakraProvider>
   );
