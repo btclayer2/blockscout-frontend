@@ -10,7 +10,41 @@ const headers = require('./nextjs/headers');
 const redirects = require('./nextjs/redirects');
 const rewrites = require('./nextjs/rewrites');
 
+const getBEVMWssUrlByBranch = () => {
+  const branchName = process.env.CF_PAGES_BRANCH;
+
+  switch (branchName) {
+    case 'testnet':
+      return 'wss://testnet.bevm.io/ws';
+    case 'canary-mainnet':
+      return 'wss://rpc-canary-1.bevm.io/ws';
+    case 'canary-testnet':
+      return 'wss://canary-testnet.bevm.io/ws';
+    default:
+      return 'wss://rpc-canary-1.bevm.io/ws';
+  }
+};
+
+const getBTCDecimalByBranch = () => {
+  const branchName = process.env.CF_PAGES_BRANCH;
+
+  switch (branchName) {
+    case 'testnet':
+      return 18;
+    case 'canary-mainnet':
+      return 8;
+    case 'canary-testnet':
+      return 8;
+    default:
+      return 8;
+  }
+};
+
 const moduleExports = {
+  env: {
+    BEVM_WSS_URL: getBEVMWssUrlByBranch(),
+    BTC_DECIMAL: getBTCDecimalByBranch(),
+  },
   transpilePackages: [
     'react-syntax-highlighter',
     'swagger-client',

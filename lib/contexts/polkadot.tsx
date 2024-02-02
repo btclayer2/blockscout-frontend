@@ -6,7 +6,8 @@ import { TypeRegistry } from '@polkadot/types/create';
 
 import { BEVM_RPC } from '../../configs/app/polkadot/bevm_rpc';
 
-const BEVM_TESTNET_WSS = 'wss://testnet.bevm.io/ws';
+/* eslint-disable */
+const BEVM_WSS_URL = process.env.BEVM_WSS_URL || 'wss://rpc-canary-1.bevm.io/ws';
 
 interface ApiProps {
   api: ApiPromise | null;
@@ -20,7 +21,7 @@ export const PolkadotApiProvider = ({ children }: { children: React.ReactNode}) 
   const [ api, setApi ] = useState<ApiPromise | null>(null);
 
   useEffect(() => {
-    const provider = new WsProvider(BEVM_TESTNET_WSS);
+    const provider = new WsProvider(BEVM_WSS_URL);
 
     const apiProvider = new ApiPromise({
       provider,

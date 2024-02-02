@@ -59,7 +59,7 @@ const ChainIndicatorItem = ({ id, title, value, icon, isSelected, onClick, stats
     if (id === 'market_cap') {
       const formatBtcMarketCap = Number(btcMarketCap) < 1 ?
         btcMarketCap :
-        Number(btcMarketCap).toLocaleString(undefined, { maximumFractionDigits: 0, notation: 'compact' });
+        Number(btcMarketCap).toLocaleString(undefined, { maximumFractionDigits: 8, notation: 'compact' });
       return <Text variant="secondary" fontWeight={ 600 }>{ formatBtcMarketCap } BTC</Text>;
     }
 

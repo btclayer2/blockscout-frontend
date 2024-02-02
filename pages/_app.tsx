@@ -2,6 +2,7 @@ import type { ChakraProps } from '@chakra-ui/react';
 import * as Sentry from '@sentry/react';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import BigNumber from 'bignumber.js';
 import type { AppProps } from 'next/app';
 import React from 'react';
 
@@ -22,6 +23,8 @@ import Web3ModalProvider from 'ui/shared/Web3ModalProvider';
 import { PolkadotApiProvider } from '../lib/contexts/polkadot';
 
 import 'lib/setLocale';
+
+BigNumber.config({ EXPONENTIAL_AT: [ -100, 100 ] });
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
