@@ -15,8 +15,8 @@ export const useGetBtcMarketCap = (): { data: string; loading: boolean } => {
     const getData = async() => {
       setLoading(true);
       /* eslint-disable */
-      const res = await api.query.xBtcLedger.totalInComing();
-      const num = new BigNumber(res?.toString() || 0).dividedBy(Math.pow(10, BTC_DECIMAL)).toString()
+      const res = await api?.query.xBtcLedger.totalInComing();
+      const num = new BigNumber(res?.toString() || 0).dividedBy(Math.pow(10, Number(BTC_DECIMAL))).toString()
       setData(num)
       setLoading(false)
     }
