@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { usePolkadotApi } from '../contexts/polkadot';
 
 /* eslint-disable */
-const BTC_DECIMAL = process.env.BTC_DECIMAL || 8;
+const BTC_DECIMAL = process.env.BTC_DECIMAL || 18;
 
 export const useGetBtcMarketCap = (): { data: string; loading: boolean } => {
   const { api, isApiReady } = usePolkadotApi();
