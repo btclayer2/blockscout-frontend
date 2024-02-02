@@ -47,6 +47,6 @@ export const PolkadotApiProvider = ({ children }: { children: React.ReactNode}) 
   );
 };
 
-export const usePolkadotApi = (): ApiPromise => {
+export const usePolkadotApi = (): ApiProps => {
   return useContext(PolkadotApiContext);
 };
