@@ -9,7 +9,7 @@ const BTC_DECIMAL = process.env.BTC_DECIMAL || 8;
 export const useGetBtcMarketCap = (): { data: string; loading: boolean } => {
   const { api, isApiReady } = usePolkadotApi();
   const [ data, setData ] = useState<string>('0');
-  const [ loading, setLoading ] = useState<boolean>(false);
+  const [ loading, setLoading ] = useState<boolean>(true);
 
   useEffect(() => {
     const getData = async() => {
