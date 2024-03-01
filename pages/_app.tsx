@@ -58,6 +58,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         { ...ERROR_SCREEN_STYLES }
         onError={ handleError }
       >
+
         <PolkadotApiProvider>
           <Web3ModalProvider>
             <AppContextProvider pageProps={ pageProps }>
