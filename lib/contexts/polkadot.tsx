@@ -7,7 +7,7 @@ import { TypeRegistry } from '@polkadot/types/create';
 import { BEVM_RPC } from '../../configs/app/polkadot/bevm_rpc';
 
 /* eslint-disable */
-const BEVM_WSS_URL = process.env.BEVM_WSS_URL || 'wss://rpc-canary-1.bevm.io/ws';
+const BEVM_WSS_URL = process.env.BEVM_WSS_URL || 'wss://rpc-mainnet-1.bevm.io/ws';
 
 interface ApiProps {
   api: ApiPromise | null;
