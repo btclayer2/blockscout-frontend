@@ -17,11 +17,11 @@ const getBEVMWssUrlByBranch = () => {
     case 'testnet':
       return 'wss://testnet.bevm.io/ws';
     case 'canary-mainnet':
-      return 'wss://rpc-canary-1.bevm.io/ws';
+      return 'wss://rpc-mainnet-1.bevm.io/ws';
     case 'canary-testnet':
       return 'wss://canary-testnet.bevm.io/ws';
     default:
-      return 'wss://rpc-canary-1.bevm.io/ws';
+      return 'wss://rpc-mainnet-1.bevm.io/ws';
   }
 };
 
@@ -36,7 +36,7 @@ const getBTCDecimalByBranch = () => {
     case 'canary-testnet':
       return 8;
     default:
-      return 8;
+      return 18;
   }
 };
 
