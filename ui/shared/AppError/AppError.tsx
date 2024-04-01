@@ -69,6 +69,10 @@ const AppError = ({ error, className }: Props) => {
         return <AppErrorTooManyRequests/>;
       }
 
+      case 404: {
+        return <AppErrorInvalidTxHash/>;
+      }
+
       default: {
         const { title, text } = ERROR_TEXTS[String(statusCode)] ?? ERROR_TEXTS[500];
 
