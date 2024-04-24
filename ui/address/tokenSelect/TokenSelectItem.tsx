@@ -19,7 +19,7 @@ const TokenSelectItem = ({ data }: Props) => {
   const secondRow = (() => {
     switch (data.token.type) {
       case 'ERC-20': {
-        const tokenDecimals = Number(data.token.decimals) || 18;
+        const tokenDecimals = data.token.decimals === undefined || data.token.decimals === null ? 18 : Number(data.token.decimals);
         const text = `${ BigNumber(data.value).dividedBy(10 ** tokenDecimals).dp(8).toFormat() } ${ data.token.symbol || '' }`;
 
         return (
