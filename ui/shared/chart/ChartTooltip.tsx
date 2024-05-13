@@ -8,6 +8,13 @@ import computeTooltipPosition from 'ui/shared/chart/utils/computeTooltipPosition
 import type { Pointer } from 'ui/shared/chart/utils/pointerTracker';
 import { trackPointer } from 'ui/shared/chart/utils/pointerTracker';
 
+const toLocaleString = (value: number): string => {
+  if (value < 0.001 && value > 0) {
+    return value.toFixed(8);
+  }
+  return value.toLocaleString();
+};
+
 interface Props {
   width?: number;
   tooltipWidth?: number;
@@ -82,7 +89,7 @@ const ChartTooltip = ({ xScale, yScale, width, tooltipWidth = 200, height, data,
       .selectAll<Element, TimeChartData>('.ChartTooltip__value')
       .filter((td, tIndex) => tIndex === i)
       .text(
-        (data[i].valueFormatter?.(d.value) || d.value.toLocaleString()) +
+        (data[i].valueFormatter?.(d.value) || toLocaleString(d.value)) +
         (data[i].units ? ` ${ data[i].units }` : ''),
       )
       .nodes();
