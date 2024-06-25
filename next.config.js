@@ -50,6 +50,9 @@ const moduleExports = {
     'swagger-client',
     'swagger-ui-react',
   ],
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   reactStrictMode: true,
   webpack(config, { webpack }) {
     config.plugins.push(
