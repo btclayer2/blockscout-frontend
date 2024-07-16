@@ -62,7 +62,7 @@ const AddressPageContent = () => {
 
   const isSafeAddress = useIsSafeAddress(!addressQuery.isPlaceholderData && addressQuery.data?.is_contract ? hash : undefined);
 
-  const contractTabs = useContractTabs(addressQuery.data);
+  const contractTabs = useContractTabs(addressQuery.data, addressQuery.isPlaceholderData);
 
   const tabs: Array<RoutedTab> = React.useMemo(() => {
     return [

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import type { Address } from 'types/api/address';
@@ -9,17 +10,36 @@ import ContractWrite from 'ui/address/contract/ContractWrite';
 import { CUSTOM_ABI } from '../../stubs/account';
 import { divideAbiIntoMethodTypes } from '../../ui/address/contract/divideAbiIntoMethodTypes';
 import useApiQuery from '../api/useApiQuery';
+import getQueryParamString from '../router/getQueryParamString';
 
-export default function useContractTabs(data: Address | undefined) {
+const CONTRACT_TAB_IDS = [
+  'contract_code',
+  'read_contract',
+  'read_contract_rpc',
+  'read_proxy',
+  'read_custom_methods',
+  'write_contract',
+  'write_contract_rpc',
+  'write_proxy',
+  'write_custom_methods',
+] as const;
+
+export default function useContractTabs(data: Address | undefined, isPlaceholderData: boolean) {
+  const router = useRouter();
+  const tab = getQueryParamString(router.query.tab);
+
+  const isEnabled = Boolean(data?.hash) && data?.is_contract && !isPlaceholderData && CONTRACT_TAB_IDS.concat('contract' as never).includes(tab);
+
   const contractQuery = useApiQuery('contract', {
     pathParams: { hash: data?.hash },
     queryOptions: {
-      enabled: Boolean(data?.hash),
+      enabled: isEnabled,
+      refetchOnMount: false,
     },
   });
-
   const customAbiQuery = useApiQuery('custom_abi', {
     queryOptions: {
+      enabled: isEnabled,
       placeholderData: Array(3).fill(CUSTOM_ABI),
     },
   });
