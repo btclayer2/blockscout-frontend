@@ -171,7 +171,7 @@ const TokenPageContent = () => {
     queryOptions: { enabled: Boolean(tokenQuery.data) && config.features.verifiedTokens.isEnabled },
   });
 
-  const contractTabs = useContractTabs(contractQuery.data);
+  const contractTabs = useContractTabs(contractQuery.data, contractQuery.isPlaceholderData);
 
   const tabs: Array<RoutedTab> = [
     (tokenQuery.data?.type === 'ERC-1155' || tokenQuery.data?.type === 'ERC-721') ? {

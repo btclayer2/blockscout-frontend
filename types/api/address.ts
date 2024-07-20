@@ -6,6 +6,11 @@ import type { InternalTransaction } from './internalTransaction';
 import type { NFTTokenType, TokenInfo, TokenInstance, TokenType } from './token';
 import type { TokenTransfer, TokenTransferPagination } from './tokenTransfer';
 
+export interface AddressImplementation {
+  address: string;
+  name: string | null;
+}
+
 export interface Address extends UserTags {
   block_number_balance_updated_at: number | null;
   coin_balance: string | null;
@@ -14,25 +19,20 @@ export interface Address extends UserTags {
   exchange_rate: string | null;
   // TODO: if we are happy with tabs-counters method, should we delete has_something fields?
   has_beacon_chain_withdrawals?: boolean;
-  has_custom_methods_read: boolean;
-  has_custom_methods_write: boolean;
   has_decompiled_code: boolean;
   has_logs: boolean;
-  has_methods_read: boolean;
-  has_methods_read_proxy: boolean;
-  has_methods_write: boolean;
-  has_methods_write_proxy: boolean;
   has_token_transfers: boolean;
   has_tokens: boolean;
   has_validated_blocks: boolean;
   hash: string;
-  implementation_address: string | null;
-  implementation_name: string | null;
   is_contract: boolean;
   is_verified: boolean;
   name: string | null;
   token: TokenInfo | null;
   watchlist_address_id: number | null;
+  implementations: Array<AddressImplementation> | null;
+  implementation_address: string | null;
+  ens_domain_name: string | null;
 }
 
 export interface AddressCounters {

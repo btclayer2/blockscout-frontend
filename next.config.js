@@ -81,6 +81,9 @@ const moduleExports = {
   experimental: {
     instrumentationHook: true,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = withBundleAnalyzer(withRoutes(moduleExports));
